@@ -195,6 +195,127 @@ Vue.filter('price', (value) => {
 + setter와 getter를 직접 지정할 수 있음
 + computed 속성은 한번 실행(캐싱), method로 하면 호출될때마다 실행
 + 
-```ㅗ싀ㅡ
-<>
+```html
+var vm = new Vue({
+    el: '#example',
+    data: {
+        message: '안녕하세요'
+    },
+    computed: {
+        reversedMessage: function(){
+            return this.message.split(').reverse().join('');
+        }
+    }
+})
 ```
+
+## Vue watch
++ 뷰 인스턴스의 특정 property가 변경될 때 실행할 콜백 함수 설정
+```html
+var vm = new Vue({
+  el: '#demo',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar',
+    fullName: 'Foo Bar'
+  },
+  watch: {
+    firstName: function (val) {
+      this.fullName = val + ' ' + this.lastName
+    },
+    lastName: function (val) {
+      this.fullName = this.firstName + ' ' + val
+    }
+  }
+})
+```
+
+### Computed vs Watch
++ `watch`는 감시할 데이터를 지정하고 그 데이터가 바뀌면 이런 함수를 실행하라는 방식의 **명령형 프로그래밍**
++ `computed`는 계산해야 하는 목표 데이터를 정의하는 방식으로 **선언형 프로그래밍**
++ `watch`보다 `computed`를 자주 써라
+
+
+## v-on
++ DOM 이벤트를 듣고 트리거될 때 javascript 실행, 혹은 메서드 핸들링
+```html
+<div id="example-2">
+  <!-- `greet`는 메소드 이름으로 아래에 정의되어 있습니다 -->
+  <button v-on:click="greet">Greet</button>
+</div>
+
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    name: 'Vue.js'
+  },
+  // 메소드는 `methods` 객체 안에 정의합니다
+  methods: {
+    greet: function (event) {
+      // 메소드 안에서 사용하는 `this` 는 Vue 인스턴스를 가리킵니다
+      alert('Hello ' + this.name + '!')
+      // `event` 는 네이티브 DOM 이벤트입니다
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+})
+```
+### v-on 이벤트 수식어
++ 클릭 이벤트 전파 중단
+  `<a v-on:click.stop = "doThis"></a>`
++ 제출 이벤트가 페이지를 다시 로드 하지 않음
+  `<a v-on:submit.prevent = "onSubmit"></a>`
++ 수식어는 체이닝 가능
+  `<a v-on:click.stop.prevent = "doThat"></a>`
++ 단순히 수식어만 사용할 수 있다
+  `<a v-on:submit.prevent = "doThat"></a>`
++ `v-on`은 `@`로 축약 가능
+
+## 키 수식어
+뷰는 키 이벤트를 수신할 때 `v-on:keyup.enter="submit"`이렇게 키 수식어 추가 가능
++ enter, tab, delete, esc, space, up, down, left, right
+
+## ref, $refs
++ 뷰에서 $refs 속성을 이용해 DOM에 접근할 수 있다.
++ 다만 뷰의 가장 중요한 목적 중 하나는 개발자가 DOM을 다루지 않게 하는 것이므로 됟로고 ref를 사용하는 것을 피하는 게 좋다
+```html
+<input type="text> v-model="id" ref="id">
+
+methods:{
+    search(){
+        if(this.id.length == 0){
+            this.$refs.id.focus();
+            return;
+        }
+        console.log(this.$rets.id.value);
+    }
+}
+ ```
+
+## form - checkbox
++ 하나의 체크박스는 단일 boolean 값을 갖는다.
+```html
+<input type="checkbox" id="smsYN" v-model"sns" true-value="Y" false-value="N">  
+```
++ 배열일 경우 checkbox는 value 속성을 가져온단
+  
+## form - radio
++ value의 속성 값 관리
+```html
+<input ype="radio" id="gwangju" value="광주" v-model="ckArea">
+<input ype="radio" id="seoul" value="서울" v-model="ckArea">
+<input ype="radio" id="daejeon" value="대전" v-model="ckArea">
+<input ype="radio" id="busan" value="부산" v-model="ckArea">
+data:{
+    ckArea: '광주'  //광주가 체크됨
+}
+```
++ select box도 마찬가지
+
+## form - 수식어
++ lazy: change 이벤트 이후에 동기화
++ number: 사용자의 입력이 자동으로 숫자로 형 변화 되기를 원하면 v-model의 input에 number 수식어를 추가하면 된다.
++ trim: v-model input이 자동으로 trim 가능
+  `<input v-model.trim="msg">`
