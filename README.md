@@ -7,3 +7,4 @@ Today I Learned🤔
   * [Vue Instance](https://github.com/choieunsong/TIL/blob/master/Vue/Vue_Instance.md) 
   * [DOM](https://github.com/choieunsong/TIL/blob/master/Vue/DOM.md)
   * [Component](https://github.com/choieunsong/TIL/blob/master/Vue/Component.md)
+  * [axios,router](https://github.com/choieunsong/TIL/blob/master/Vue/axios%2Crouter.md)
