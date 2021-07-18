@@ -94,11 +94,11 @@ Garbage Collector(GC)는 Heap 메모리 영역에 생성된 객체들 중에 참
 
 # JDK와 JRE의 차이
 ### JRE(Java Runtime Environment)
-자바 어플리케이션의 실행환경이다. JRE는 JVM이 자바 프로그램을 동작시킬 때 필요한 라이브러리 파일들과 기타 파일들을 가지고 있다. JRE는 JVM의 실행환경을 구현했다고 볼 수 있다.
+자바 어플리케이션의 실행환경이다. JRE는 JVM이 자바 프로그램을 동작시킬 때 필요한 라이브러리 파일들과 기타 파일들을 가지고 있다. JRE는 JVM의 실행환경을 구현했다고 볼 수 있다.  
 ![image](https://user-images.githubusercontent.com/24693833/126055471-e1f04ee1-6cb2-4a01-ac90-b55776ff27c6.png)
 
 
 
 ### JDK(Java Development Kit)
-Java Development Kit로 JVM과 자바클래스 라이브러리(Java API)외에 자바를 개발하는데 필요한 프로그램들이 설치된다. JDK는 JRE + 개발을 위해 필요한 도구(javac, java 등)을 포함한다.
+Java Development Kit로 JVM과 자바클래스 라이브러리(Java API)외에 자바를 개발하는데 필요한 프로그램들이 설치된다. JDK는 JRE + 개발을 위해 필요한 도구(javac, java 등)을 포함한다.  
 ![image](https://user-images.githubusercontent.com/24693833/126055475-73d3c8e3-cb3a-48a3-996f-f32478728fdb.png)
