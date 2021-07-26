@@ -35,3 +35,22 @@ WebRTC는 실시간 통신할 수 있는 영상정보, 오디오정보, 채팅�
 1. WebRTC enables communication in the browser
 2. Includes NAT and firewall traversal technology using STUN, ICE, TURN, RTP-over-TCP and support proxies
 3. Most modern browsers today support it
+
+
+<br>
+
+### WebSockets vs WebRTC
+![image](https://user-images.githubusercontent.com/24693833/127002343-8947d6cc-e301-46d7-8a32-69df254ac2dc.png)
+웹소켓은 오로지 클라이언트-서버와 통신만 가능함. 양방향 통신이 가능하지만 유튜브처럼 peer-to-peer 영상사이트로 만들기엔 서버 부담이 너무 크다. 
+
+![image](https://user-images.githubusercontent.com/24693833/127002438-e0e9d22f-b99f-4300-8cbe-630c66357232.png)
+WebRTC는 클라이언트끼리 바로 통신이 가능함. 서버에서 데이터를 받아오는 데 필요한 latency 없어서 빠름. 화상채팅 구현하기에 딱!!
+
+ref) https://www.youtube.com/watch?v=2Z2PDsqgJP8
+
+
+### Signaling
+클라이언트끼리 서로 통신할 수 있는 상태라는 거승ㄹ 아는 방법. Client A와 Client B가 있을 때 둘이 통신하고 싶다면 서버를 매개로 서로 정보를 주고받고 연결함. 그 후에 클라이언트끼리 서버 없이 통신.
+그러나 WebRTC는 UDP로 통신하므로 데이터 손실 가능성이 높다. 그래서 시그널링을 할 때 WebSockets가 필요함
+
+
