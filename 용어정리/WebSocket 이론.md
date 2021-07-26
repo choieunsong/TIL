@@ -1,5 +1,5 @@
 # WebSocket이란
-[우아한 테크코스 - 코일읠 Web Socket 참고](https://www.youtube.com/watch?v=MPQHvwPxDUw&t=656s)
+[우아한 테크코스 - 코일의 Web Socket 참고](https://www.youtube.com/watch?v=MPQHvwPxDUw&t=656s)
 
 ### 웹 소켓이란?
 + html5에서 지원하는 두 프로그램 간의 메시지를 교환하기 위한 통신 방법 중 하나
